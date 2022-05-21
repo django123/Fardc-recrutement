@@ -1,11 +1,11 @@
 package com.django.inscription.dto;
 
-import com.django.inscription.entities.Gender;
 import lombok.Data;
 
 @Data
 public class CandidateDto {
 
+    String id;
     private String firstName;
     private String lastName;
     private String fatherName;
