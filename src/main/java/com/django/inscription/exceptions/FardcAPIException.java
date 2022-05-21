@@ -2,26 +2,28 @@ package com.django.inscription.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-public class APIException extends RuntimeException{
+public class FardcAPIException extends RuntimeException {
+
     private HttpStatus status;
     private String message;
 
-    public APIException(HttpStatus status, String message){
+    public FardcAPIException(HttpStatus status, String message) {
         this.status = status;
         this.message = message;
     }
-    public APIException(String message,HttpStatus status, String message1){
+
+    public FardcAPIException(String message, HttpStatus status, String message1) {
         super(message);
         this.status = status;
         this.message = message1;
     }
 
-    public HttpStatus getStatus(){
+    public HttpStatus getStatus() {
         return status;
     }
 
     @Override
-    public String getMessage(){
+    public String getMessage() {
         return message;
     }
 }

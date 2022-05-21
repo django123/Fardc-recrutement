@@ -57,5 +57,4 @@ public class Candidate extends Base{
 
 
 
-
 }

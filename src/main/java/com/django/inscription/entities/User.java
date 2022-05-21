@@ -8,7 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 @Entity
-@Table(name = "user")
 @Data
 @AllArgsConstructor @NoArgsConstructor
 public class User extends Base{

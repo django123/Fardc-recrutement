@@ -12,12 +12,13 @@ import java.util.UUID;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Data
-public class Base implements Serializable {
+public abstract class Base implements Serializable {
 
     @Id
     @Column(name = "uuid", unique = true)
     private String id;
-
+    @Column(name = "created_at")
+    @Temporal(TemporalType.DATE)
     private Date createdAt;
 
     @Column(name = "created_on")
@@ -37,7 +38,6 @@ public class Base implements Serializable {
 
     @Column(name = "deleted", columnDefinition="boolean default false")
     private Boolean isDeleted;
-
 
     @PrePersist
     public void prePersist(){
