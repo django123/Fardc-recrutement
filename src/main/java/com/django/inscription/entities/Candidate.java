@@ -52,7 +52,7 @@ public class Candidate extends Base{
     private String birthCertificate;
     @Lob
     private String certificateOfPhysicalFitness;
-    private List<String>practicalLangages=new ArrayList<>();
+    //private List<String>practicalLangages=new ArrayList<>();
 
 
 

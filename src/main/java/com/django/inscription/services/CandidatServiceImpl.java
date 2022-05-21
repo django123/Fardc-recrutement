@@ -47,13 +47,13 @@ public class CandidatServiceImpl implements CandidatService{
 
     @Override
     public CandidateDto getCandidate(String candidateId) {
-        Candidate candidate = candidateRepository.findById(candidateId).orElseThrow(()->new ResourceNotFoundException("Candidate", "id",candidateId));
+        Candidate candidate = candidateRepository.findById(candidateId).orElseThrow(()->new ResourceNotFoundException("Candidate", "id", candidateId));
         return mapper.fromCandidate(candidate);
     }
 
     @Override
     public void deleteCandidate(String candidateId) {
-       Candidate candidate = candidateRepository.findById(candidateId).orElseThrow(()->new ResourceNotFoundException("Candidate", "id",candidateId));
+       Candidate candidate = candidateRepository.findById(candidateId).orElseThrow(()->new ResourceNotFoundException("Candidate", "id", candidateId));
        candidateRepository.delete(candidate);
     }
 }

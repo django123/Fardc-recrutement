@@ -1,8 +1,8 @@
 package com.django.inscription.web;
 
 import com.django.inscription.dto.CandidateDto;
-import com.django.inscription.entities.Candidate;
 import com.django.inscription.services.CandidatService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +12,11 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+@Tag(description = "Candidate resources that provides access to availabe candidate data",
+        name = "Candidate resource")
 @RestController
 @RequestMapping("/api/v1/candidates")
+@CrossOrigin("*")
 @RequiredArgsConstructor
 public class CandidateRestController {
 

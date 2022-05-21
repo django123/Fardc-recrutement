@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ControllerAdvice
-public class GlobalHandleException extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     // handle specific exceptions
     @ExceptionHandler(ResourceNotFoundException.class)
@@ -26,8 +26,8 @@ public class GlobalHandleException extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(APIException.class)
-    public ResponseEntity<ErrorDetails> handleBlogAPIException(APIException exception,
+    @ExceptionHandler(FardcAPIException.class)
+    public ResponseEntity<ErrorDetails> handleBlogAPIException(FardcAPIException exception,
                                                                WebRequest webRequest){
         ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
                 webRequest.getDescription(false));
