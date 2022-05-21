@@ -15,7 +15,7 @@ import java.util.UUID;
 public abstract class Base implements Serializable {
 
     @Id
-    @Column(name = "uuid", unique = true)
+    @Column(name = "id", unique = true)
     private String id;
     @Column(name = "created_at")
     @Temporal(TemporalType.DATE)
