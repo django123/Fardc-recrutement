@@ -1,7 +1,9 @@
 package com.derteuffel.farcd.web;
 
 import com.derteuffel.farcd.dto.CandidateDto;
+import com.derteuffel.farcd.exceptions.ResourceNotFoundException;
 import com.derteuffel.farcd.services.CandidatService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +17,7 @@ import java.util.List;
         name = "Candidate resource")
 @RestController
 @RequestMapping("/api/v1/candidates")
-@CrossOrigin("*")
+@SecurityRequirement(name = "farcd")
 @RequiredArgsConstructor
 public class CandidateRestController {
 
@@ -28,7 +30,7 @@ public class CandidateRestController {
     }
 
     @GetMapping("/get/{id}")
-    public CandidateDto getCandidate(@PathVariable("id") String candidateId){
+    public CandidateDto getCandidate(@PathVariable("id") String candidateId) throws ResourceNotFoundException {
         return candidatService.getCandidate(candidateId);
     }
 
@@ -56,7 +58,7 @@ public class CandidateRestController {
 
 
     @DeleteMapping("/delete/{candidateId}")
-    public void deleteCandidate(@PathVariable String candidateId){
+    public void deleteCandidate(@PathVariable String candidateId) throws ResourceNotFoundException {
         candidatService.deleteCandidate(candidateId);
     }
 }

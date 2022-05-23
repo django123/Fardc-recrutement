@@ -4,6 +4,7 @@ import domain.User;
 import domain.UserPrincipal;
 import enumeration.Role;
 import exception.*;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
@@ -42,20 +43,15 @@ import static org.springframework.http.MediaType.*;
 @Service
 @Transactional
 @Qualifier("userDetailsService")
+@RequiredArgsConstructor
 public class UserServiceImplement implements UserService, UserDetailsService {
     private Logger LOGGER = LoggerFactory.getLogger(getClass());
-    private UserRepository userRepository;
-    private BCryptPasswordEncoder passwordEncoder;
-    private LoginAttemptService loginAttemptService;
-    private EmailService emailService;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+    private final LoginAttemptService loginAttemptService;
+    private final EmailService emailService;
 
-    @Autowired
-    public UserServiceImplement(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder, LoginAttemptService loginAttemptService, EmailService emailService) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.loginAttemptService = loginAttemptService;
-        this.emailService = emailService;
-    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

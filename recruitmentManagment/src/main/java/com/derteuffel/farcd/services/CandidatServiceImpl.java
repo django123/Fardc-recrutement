@@ -46,13 +46,13 @@ public class CandidatServiceImpl implements CandidatService{
     }
 
     @Override
-    public CandidateDto getCandidate(String candidateId) {
+    public CandidateDto getCandidate(String candidateId) throws ResourceNotFoundException {
         Candidate candidate = candidateRepository.findById(candidateId).orElseThrow(()->new ResourceNotFoundException("Candidate", "id", candidateId));
         return mapper.fromCandidate(candidate);
     }
 
     @Override
-    public void deleteCandidate(String candidateId) {
+    public void deleteCandidate(String candidateId) throws ResourceNotFoundException {
        Candidate candidate = candidateRepository.findById(candidateId).orElseThrow(()->new ResourceNotFoundException("Candidate", "id", candidateId));
        candidateRepository.delete(candidate);
     }

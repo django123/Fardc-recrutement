@@ -22,4 +22,7 @@ public class OpenApiConfig {
                            .termsOfService("TOC")
                            .license(new License().name("Licence").url("#")));
     }
+
+
+
 }
